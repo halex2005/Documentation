@@ -34,7 +34,7 @@ For this question, let's imagine a simple email notification system like this:
     // to send the email.
     public interface IEmailServer
     {
-      void SendMessage(string toAddress, string fromAddress, message);
+      void SendMessage(string toAddress, string fromAddress, string message);
     }
 
     // Notice this implementaton takes a string parameter for the server address -
@@ -48,7 +48,7 @@ For this question, let's imagine a simple email notification system like this:
         this._serverAddress = serverAddress;
       }
 
-      public void SendMessage(string toAddress, string fromAddress, message)
+      public void SendMessage(string toAddress, string fromAddress, string message)
       {
         // ...send the message through the specified server address.
       }
@@ -162,7 +162,7 @@ You could then refactor the email server code to take the provider rather than a
         this._serverAddressProvider = serverAddressProvider;
       }
 
-      public void SendMessage(string toAddress, string fromAddress, message)
+      public void SendMessage(string toAddress, string fromAddress, string message)
       {
         var address = this._serverAddressProvider.GetServerAddress();
         // ...send the message through the specified server address.
